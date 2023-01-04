@@ -83,6 +83,11 @@ const CharacterProfile = ({quizData, onCloseProfile, traitList}) => {
                 <Row>
                   <Col md="8">
                     <CharacterTraits traitList = {traitList}/>
+                    {/* <ListGroup>
+                        <ListGroupItem className='d-flex justify-content-center list-group-item-action'><strong>{getRandTrait(posTraitList)}</strong></ListGroupItem>
+                        <ListGroupItem className='d-flex justify-content-center list-group-item-action'><strong>{getRandTrait(neuTraitList)}</strong></ListGroupItem>
+                        <ListGroupItem className='d-flex justify-content-center list-group-item-action'><strong>{getRandTrait(negTraitList)}</strong></ListGroupItem>
+                    </ListGroup> */}
                   </Col>
                 </Row>
                   </Col>

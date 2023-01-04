@@ -1,0 +1,30 @@
+Form.Label {
+    font-family: serif;
+}
+
+.btn-primary {
+    /* color: #9D0A0E; */
+    background-color: #9D0A0E;
+    border-color: #9D0A0E;
+    border-radius: 12px;
+  
+  }
+
+.btn-primary:hover {
+    /* color: #9D0A0E; */
+    background-color: #9d0a0fa9;
+    border-color: #9d0a0fa9;
+    border-radius: 12px;
+  
+  }
+
+.btn-primary:disabled, .btn-primary.disabled {
+background-color: #9d0a0fa9;
+border-color: #9d0a0fa9;
+}
+
+form {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+}
