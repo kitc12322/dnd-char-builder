@@ -38,52 +38,36 @@ const Quiz = ({quizData, setShowCharProfile, setQuizData, showCharProfile}) => {
                 <Card.Body>
                     <Form>
                         <Form.Group className="mb-3" onChange={(e) => handleOnChange(e)}>
-                            <Row>
-                                <Col md="4">
-                                    <Form.Label className="form-label me-2 required">Lawful or Chaotic?</Form.Label>
-                                </Col>
-                                <Col md="8">
-                                    <Form.Check inline label="Lawful" name="lawChaos" id="lawful" type="radio"/>
-                                    <Form.Check inline label="Neutral" name="lawChaos" id="neutral" type="radio"/>
-                                    <Form.Check inline label="Chaotic" name="lawChaos" id="chaotic" type="radio"/>
-                                </Col>
+                            <Row className="form-check-container">
+                                <Form.Label className="form-label me-2 required">Lawful or Chaotic?</Form.Label>
+                                <Form.Check inline label="Lawful" name="lawChaos" id="lawful" type="radio"/>
+                                <Form.Check inline label="Neutral" name="lawChaos" id="neutral" type="radio"/>
+                                <Form.Check inline label="Chaotic" name="lawChaos" id="chaotic" type="radio"/>
                             </Row>
                         </Form.Group>
                         <Form.Group className="mb-3" onChange={(e) => handleOnChange(e)}>
-                            <Row>
-                                <Col md="4">
-                                    <Form.Label className="form-label me-2 required">Good or evil?</Form.Label>
-                                </Col>
-                                <Col md="8">
-                                    <Form.Check inline label="Good" name="goodEvil" id="good" type="radio"/>
-                                    <Form.Check inline label="Neutral" name="goodEvil" id="neutral" type="radio"/>
-                                    <Form.Check inline label="Evil" name="goodEvil" id="evil" type="radio"/>
-                                </Col>
+                            <Row className="form-check-container">
+                                <Form.Label className="form-label me-2 required">Good or Evil?</Form.Label>
+                                <Form.Check inline label="Good" name="goodEvil" id="good" type="radio"/>
+                                <Form.Check inline label="Neutral" name="goodEvil" id="neutral" type="radio"/>
+                                <Form.Check inline label="Evil" name="goodEvil" id="evil" type="radio"/>
                             </Row>
                         </Form.Group>
                         <Form.Group className="mb-3" onChange={(e) => handleOnChange(e)}>
-                            <Row>
-                                <Col md="4">
-                                    <Form.Label className="form-label me-2 required">Magical or Martial?</Form.Label>
-                                </Col>
-                                <Col md="8" className="">
-                                    <Form.Check inline label="Magic" name="magicMartial" id="magic" type="radio"/>
-                                    <Form.Check inline label="Martial" name="magicMartial" id="martial" type="radio"/>
-                                </Col>
+                            <Row className="form-check-container">
+                                <Form.Label className="form-label me-2 required">Magical or Martial?</Form.Label>
+                                <Form.Check inline label="Magic" name="magicMartial" id="magic" type="radio"/>
+                                <Form.Check inline label="Martial" name="magicMartial" id="martial" type="radio"/>
                             </Row>
                         </Form.Group>
                         <Form.Group className="mb-3" onChange={(e) => handleOnChange(e)}>
-                            <Row>
-                                <Col md="4">
-                                    <Form.Label className="form-label me-2 required">Brains or brawn?</Form.Label>
-                                </Col>
-                                <Col md="8" className="">
-                                    <Form.Check inline label="Brains" name="brainsBrawn" id="brains" type="radio"/>
-                                    <Form.Check inline label="Brawn" name="brainsBrawn" id="brawn" type="radio"/>
-                                </Col>
+                            <Row className="form-check-container">
+                                <Form.Label className="form-label me-2 required">Brains or Brawn?</Form.Label>
+                                <Form.Check inline label="Brains" name="brainsBrawn" id="brains" type="radio"/>
+                                <Form.Check inline label="Brawn" name="brainsBrawn" id="brawn" type="radio"/>
                             </Row>
-                            </Form.Group>
-                        <Button class="btn btn-primary" variant="primary" onClick={handleSubmit} disabled={showCharProfile}>Submit</Button>
+                        </Form.Group>
+                        <Button class="btn btn-primary btn-lg" variant="primary" onClick={handleSubmit} disabled={showCharProfile}>Submit</Button>
                     </Form>
                 </Card.Body>
                 }
