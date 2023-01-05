@@ -1,6 +1,6 @@
 import {Row, Col, Card, Form, Button} from "react-bootstrap";
 import {useState} from 'react';
-import './Quiz.css';
+import '../App.css';
 
 const Quiz = ({quizData, setShowCharProfile, setQuizData, showCharProfile}) => {
 

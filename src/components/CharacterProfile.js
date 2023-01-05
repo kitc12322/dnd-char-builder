@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import {Row, Col, Card, CloseButton, Image, Form, Button} from 'react-bootstrap';
 import CharacterTraits from './CharacterTraits';
+import '../App.css';
 
 const CharacterClass = ({quizData}) => {
     if(quizData.magicMartial === "magic") {
@@ -35,13 +36,12 @@ const CharacterPortrait = ({quizData}) => {
         srcUrl = "https://www.dndbeyond.com/avatars/thumbnails/6/384/420/618/636272820319276620.png"
         altText = "rogue"
     } else {
-        console.
         console.log('failed to choose a portrait')
     }
     return(<Image width="250" src={srcUrl} alt={altText} />)
 }
 
-const CharacterProfile = ({quizData, onCloseProfile, traitList}) => {
+const CharacterProfile = ({quizData, onCloseProfile, randTraits}) => {
     let [nameChangeMode, setNameChangeMode] = useState(false)
     let [charName, setCharName] = useState("Choose Your Name")
 
@@ -49,8 +49,11 @@ const CharacterProfile = ({quizData, onCloseProfile, traitList}) => {
         <>
             <Card className="mb-3">
               <Card.Header>
-                <Row className='mt-2'>
+                <Row className='my-2 char-prof-title-container'>
                   <Col>
+                    <Button className="btn btn-primary btn-sm" onClick={() => setNameChangeMode(!nameChangeMode)}>Change Name</Button>
+                  </Col>
+                  <Col className='char-name'>
                     {!nameChangeMode && 
                     <h4>{charName}</h4>}
 
@@ -61,9 +64,6 @@ const CharacterProfile = ({quizData, onCloseProfile, traitList}) => {
                     </Form.Group>}
                   </Col>
                   <Col>
-                    <Button className="d-flex btn btn-sm" onClick={() => setNameChangeMode(!nameChangeMode)}>Change Name</Button>
-                  </Col>
-                  <Col className='d-flex align-items-center justify-content-end'>
                     <CloseButton onClick={() => onCloseProfile(false)} className="float-end"></CloseButton>
                   </Col>
                 </Row>
@@ -82,12 +82,7 @@ const CharacterProfile = ({quizData, onCloseProfile, traitList}) => {
                     </Row>
                 <Row>
                   <Col md="8">
-                    <CharacterTraits traitList = {traitList}/>
-                    {/* <ListGroup>
-                        <ListGroupItem className='d-flex justify-content-center list-group-item-action'><strong>{getRandTrait(posTraitList)}</strong></ListGroupItem>
-                        <ListGroupItem className='d-flex justify-content-center list-group-item-action'><strong>{getRandTrait(neuTraitList)}</strong></ListGroupItem>
-                        <ListGroupItem className='d-flex justify-content-center list-group-item-action'><strong>{getRandTrait(negTraitList)}</strong></ListGroupItem>
-                    </ListGroup> */}
+                    <CharacterTraits randTraits = {randTraits}/>
                   </Col>
                 </Row>
                   </Col>

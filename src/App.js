@@ -39,9 +39,18 @@ function App() {
 
     useEffect(() => {
         fetchData();
-        console.log("useEffect")
     }, [fetchData])
     //////////////////////////////////////
+
+    function getRandTraits(traitList) {
+      let randTraits = [3];
+      let sourceTraits = traitList.traits;
+
+      for (let index = 0; index < sourceTraits.length; index++) {
+        randTraits[index] = sourceTraits[index][Math.floor(Math.random() * sourceTraits[index].length)];
+      }
+      return randTraits;
+  }
 
   return (
     <div className="App">
@@ -59,7 +68,7 @@ function App() {
         </Row>
         <Row className="justify-content-center">
           <Col md="8">
-            {showCharProfile && <CharacterProfile quizData={quizData} onCloseProfile={() => setShowCharProfile(false)} traitList = {traitList}/>}
+            {showCharProfile && <CharacterProfile quizData={quizData} onCloseProfile={() => setShowCharProfile(false)} randTraits = {getRandTraits(traitList)}/>}
           </Col>
         </Row>
       </Container>
