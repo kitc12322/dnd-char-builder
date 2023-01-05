@@ -87,7 +87,7 @@ const CharacterProfile = ({quizData, onCloseProfile, randTraits, getRandTraits, 
                     <Row>
                         <h1 as="Col"><CharacterClass quizData={quizData} /></h1>
                     </Row>
-                    <Row>
+                    <Row className='d-flex justify-content-center'>
                         <CharacterTraits randTraits = {randTraits} getRandTraits={() => getRandTraits(traitList)} traitList={traitList}/>
                     </Row>
                   </Col>

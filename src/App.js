@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col, Navbar} from 'react-bootstrap';
 import Quiz from "./components/Quiz";
 import {useCallback, useEffect, useState} from 'react';
 import CharacterProfile from './components/CharacterProfile';
@@ -55,13 +55,15 @@ function App() {
 
   return (
     <div className="App">
+        <Navbar className='navbar'>
+          <Row>
+            <Col className="my-3">
+              <h2 className="text-center my-2"><strong>DnD Character Builder</strong></h2>
+            </Col>
+          </Row>
+        </Navbar>
+        <div className="under-nav mb-4"></div>
       <Container>
-        <Row>
-          <Col className="my-3">
-            <h1 className="text-center"><strong>DnD Character Builder</strong></h1>
-          </Col>
-        </Row>
-
         <Row className="justify-content-center">
           <Col md="8">
             <Quiz quizData={quizData} showCharProfile={showCharProfile} setShowCharProfile={() => setShowCharProfile(true)} setQuizData={(quizData) => setQuizData(quizData)}  />

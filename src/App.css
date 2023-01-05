@@ -1,3 +1,17 @@
+.navbar {
+  background-color: #E7E7DB;
+  height: 4rem;
+  font-size: smaller;
+  color: #9D0A0E;
+  display: flex;
+  justify-content: center;
+}
+
+.under-nav {
+  height: 5px;
+  background-color: #9D0A0E;
+}
+
 .btn-primary, .btn-primary:focus {
   /* color: #9D0A0E; */
   background-color: #9D0A0E;
@@ -6,7 +20,7 @@
 
 }
 
-.btn-primary:hover, .btn-primary:active {
+.btn-primary:hover, .btn-primary:active, .button-primary:active {
   /* color: #9D0A0E; */
   background-color: #9d0a0fa9;
   border-color: #9d0a0f33;
@@ -17,6 +31,10 @@
 .btn-primary:disabled, .btn-primary.disabled {
 background-color: #9d0a0fa9;
 border-color: #9d0a0f14;
+}
+
+.card {
+  background-color: #E7E7DB;
 }
 
 form {
@@ -58,7 +76,22 @@ form {
   align-items: center;
 }
 
+.list-group {
+  border-width: 5rem;
+}
+
 .list-group-item {
+  background-color: #f6f6e7;
   display: flex;
   justify-content: center;
+  border-width: 3px;
+}
+
+.list-group-item:hover {
+  background-color: #dfdfd1;
+  transition: 0.2s;
+}
+
+.rand-traits-btn {
+  width: fit-content;
 }

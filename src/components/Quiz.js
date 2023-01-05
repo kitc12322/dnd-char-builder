@@ -1,24 +1,24 @@
-import {Row, Col, Card, Form, Button} from "react-bootstrap";
+import {Row, Card, Form, Button} from "react-bootstrap";
 import {useState} from 'react';
 import '../App.css';
 
 const Quiz = ({quizData, setShowCharProfile, setQuizData, showCharProfile}) => {
 
-    let [toggleForm, setToggleForm] = useState(true);
+    let [submitBtnState, setSubmitBtnState] = useState(false);
 
     function handleOnChange(e) {
         quizData[e.target.name] = e.target.id
-    }
 
-    function handleSubmit(e) {
+        // check if all choices are filled, then enable submit button if true
         for(let key in quizData) {
             if(quizData[key] === "") {
-               alert("Please fill out every field in the quiz.")
-               return(key)
+                return;
             }
         }
-        console.log(quizData)
-        console.log("submitting from Quiz")
+        setSubmitBtnState(true);
+    }
+
+    function handleSubmit() {
         setShowCharProfile(true);
         setQuizData(quizData);
     }
@@ -26,15 +26,6 @@ const Quiz = ({quizData, setShowCharProfile, setQuizData, showCharProfile}) => {
     return(
         <>
             <Card className="mb-3">
-                <Card.Header>Quiz
-                    {/* <Button size="sm"
-                            variant="warning" 
-                            className="small float-end" 
-                            onClick={() => {setToggleForm(!toggleForm)}}>
-                        minimize
-                    </Button> */}
-                </Card.Header>
-                { toggleForm &&
                 <Card.Body>
                     <Form>
                         <Form.Group className="mb-3" onChange={(e) => handleOnChange(e)}>
@@ -67,10 +58,9 @@ const Quiz = ({quizData, setShowCharProfile, setQuizData, showCharProfile}) => {
                                 <Form.Check inline label="Brawn" name="brainsBrawn" id="brawn" type="radio"/>
                             </Row>
                         </Form.Group>
-                        <Button class="btn btn-primary btn-lg" variant="primary" onClick={handleSubmit} disabled={showCharProfile}>Submit</Button>
+                        <Button class="btn btn-primary btn-lg" id="submit-btn" variant="primary" onClick={() => {handleSubmit()}} disabled={showCharProfile || !submitBtnState}>Submit</Button>
                     </Form>
                 </Card.Body>
-                }
             </Card>
         </>
     )

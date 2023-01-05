@@ -26,7 +26,7 @@ const CharacterTraits = ({randTraits, getRandTraits, traitList}) => {
                 <ListGroupItem className='list-group-item list-group-item-action'><strong>{neuTrait}</strong></ListGroupItem>
                 <ListGroupItem className='list-group-item list-group-item-action'><strong>{negTrait}</strong></ListGroupItem>
             </ListGroup>
-            <Button className="mt-3 btn btn-primary" onClick={() => randomizeTraits(traitList)}>Randomize Traits</Button>
+            <Button className="mt-3 btn btn-primary rand-traits-btn" onClick={() => randomizeTraits(traitList)}>Randomize Traits</Button>
 
         </>
     )
