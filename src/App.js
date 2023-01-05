@@ -3,6 +3,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 import Quiz from "./components/Quiz";
 import {useCallback, useEffect, useState} from 'react';
 import CharacterProfile from './components/CharacterProfile';
+import './App.css';
 
 function App() {
   
@@ -68,7 +69,7 @@ function App() {
         </Row>
         <Row className="justify-content-center">
           <Col md="8">
-            {showCharProfile && <CharacterProfile quizData={quizData} onCloseProfile={() => setShowCharProfile(false)} randTraits = {getRandTraits(traitList)}/>}
+            {showCharProfile && <CharacterProfile quizData={quizData} onCloseProfile={() => setShowCharProfile(false)} randTraits = {getRandTraits(traitList)} getRandTraits={() => getRandTraits(traitList)} traitList={traitList}/>}
           </Col>
         </Row>
       </Container>

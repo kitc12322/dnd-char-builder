@@ -41,13 +41,20 @@ const CharacterPortrait = ({quizData}) => {
     return(<Image width="250" src={srcUrl} alt={altText} />)
 }
 
-const CharacterProfile = ({quizData, onCloseProfile, randTraits}) => {
+const CharacterProfile = ({quizData, onCloseProfile, randTraits, getRandTraits, traitList}) => {
     let [nameChangeMode, setNameChangeMode] = useState(false)
     let [charName, setCharName] = useState("Choose Your Name")
 
+    function randomizeTraits(getRandTraits, traitList) {
+        let newTraits = getRandTraits(traitList);
+
+
+      return;
+    }
+
     return(
         <>
-            <Card className="mb-3">
+            <Card className="mb-3 char-prof-container">
               <Card.Header>
                 <Row className='my-2 char-prof-title-container'>
                   <Col>
@@ -69,22 +76,20 @@ const CharacterProfile = ({quizData, onCloseProfile, randTraits}) => {
                 </Row>
               </Card.Header>
               <Card.Body>
-                <Row className='p-4'>
-                  <Col md="7">
+                <Row className='p-4 mx-5'>
+                  <Col md="6">
                     <CharacterPortrait quizData={quizData}/>
                   </Col>
-                  <Col md="5">
+                  <Col md="6" className="char-prof-text-container">
                     <Row className='d-flex justify-content-center'>
-                        <h4 as="Col"><CharacterAlignment quizData={quizData}/></h4>
+                        <h4 as="Col" className='char-prof-container'><CharacterAlignment quizData={quizData}/></h4>
                     </Row>
                     <Row>
                         <h1 as="Col"><CharacterClass quizData={quizData} /></h1>
                     </Row>
-                <Row>
-                  <Col md="8">
-                    <CharacterTraits randTraits = {randTraits}/>
-                  </Col>
-                </Row>
+                    <Row>
+                        <CharacterTraits randTraits = {randTraits} getRandTraits={() => getRandTraits(traitList)} traitList={traitList}/>
+                    </Row>
                   </Col>
                 </Row>
               </Card.Body>
