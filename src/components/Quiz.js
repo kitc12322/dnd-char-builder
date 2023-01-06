@@ -58,7 +58,7 @@ const Quiz = ({quizData, setShowCharProfile, setQuizData, showCharProfile}) => {
                                 <Form.Check inline label="Brawn" name="brainsBrawn" id="brawn" type="radio"/>
                             </Row>
                         </Form.Group>
-                        <Button class="btn btn-primary btn-lg" id="submit-btn" variant="primary" onClick={() => {handleSubmit()}} disabled={showCharProfile || !submitBtnState}>Submit</Button>
+                        <Button className="btn btn-primary btn-danger btn-lg" id="submit-btn" variant="primary" onClick={() => {handleSubmit()}} disabled={showCharProfile || !submitBtnState}>Submit</Button>
                     </Form>
                 </Card.Body>
             </Card>

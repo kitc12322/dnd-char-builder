@@ -58,7 +58,7 @@ const CharacterProfile = ({quizData, onCloseProfile, randTraits, getRandTraits, 
               <Card.Header>
                 <Row className='my-2 char-prof-title-container'>
                   <Col>
-                    <Button className="btn btn-primary btn-sm" onClick={() => setNameChangeMode(!nameChangeMode)}>Change Name</Button>
+                    <Button className="btn btn-danger btn-sm" onClick={() => setNameChangeMode(!nameChangeMode)}>Change Name</Button>
                   </Col>
                   <Col className='char-name'>
                     {!nameChangeMode && 
