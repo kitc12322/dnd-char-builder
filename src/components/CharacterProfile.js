@@ -38,7 +38,7 @@ const CharacterPortrait = ({quizData}) => {
     } else {
         console.log('failed to choose a portrait')
     }
-    return(<Image width="250" src={srcUrl} alt={altText} />)
+    return(<Image className='char-portrait' src={srcUrl} alt={altText} />)
 }
 
 const CharacterProfile = ({quizData, onCloseProfile, randTraits, getRandTraits, traitList}) => {

@@ -107,3 +107,8 @@ form {
 .test-btn:active {
   background-color: black;
 }
+
+.char-portrait {
+  max-height: 486px;
+  max-width: 250px;
+}
