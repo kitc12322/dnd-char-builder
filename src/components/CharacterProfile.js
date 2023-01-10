@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import {Row, Col, Card, CloseButton, Image, Form, Button} from 'react-bootstrap';
 import CharacterTraits from './CharacterTraits';
+import PortraitGenBtn from './PortraitGenBtn';
 import '../App.css';
 
 const CharacterClass = ({quizData}) => {
@@ -19,6 +20,8 @@ const CharacterAlignment = ({quizData}) => {
     return lawChaos === goodEvil ? "true neutral" : lawChaos + " " + goodEvil
     }
 
+    // use DALL-E to generate using this syntax https://i.imgur.com/ASqCwZV.png
+    // make art style changes, gender
 const CharacterPortrait = ({quizData}) => {
     let srcUrl = ""
     let altText = ""
@@ -41,9 +44,15 @@ const CharacterPortrait = ({quizData}) => {
     return(<Image className='char-portrait' src={srcUrl} alt={altText} />)
 }
 
+const GeneratedPortrait = ({charPortrait}) => {
+  return(<Image className='char-portrait' src={charPortrait} alt="char portrait generated"/>)
+}
+
 const CharacterProfile = ({quizData, onCloseProfile, randTraits, getRandTraits, traitList}) => {
-    let [nameChangeMode, setNameChangeMode] = useState(false)
-    let [charName, setCharName] = useState("Choose Your Name")
+    let [nameChangeMode, setNameChangeMode] = useState(false);
+    let [charName, setCharName] = useState("Choose Your Name");
+    let [charPortrait, setCharPortrait] = useState("");
+
 
     function randomizeTraits(getRandTraits, traitList) {
         let newTraits = getRandTraits(traitList);
@@ -77,8 +86,14 @@ const CharacterProfile = ({quizData, onCloseProfile, randTraits, getRandTraits, 
               </Card.Header>
               <Card.Body>
                 <Row className='p-4 mx-5'>
-                  <Col md="6">
-                    <CharacterPortrait quizData={quizData}/>
+                  <Col md="6" className='char-prof-portrait-container'>
+                    <Row>
+                      {/* <CharacterPortrait quizData={quizData}/> */}
+                      <GeneratedPortrait charPortrait={charPortrait}/>
+                    </Row>
+                    <Row>
+                      <PortraitGenBtn setCharPortrait={setCharPortrait}/>
+                    </Row>
                   </Col>
                   <Col md="6" className="char-prof-text-container">
                     <Row className='d-flex justify-content-center'>
@@ -92,6 +107,7 @@ const CharacterProfile = ({quizData, onCloseProfile, randTraits, getRandTraits, 
                     </Row>
                   </Col>
                 </Row>
+
               </Card.Body>
             </Card>
         </>

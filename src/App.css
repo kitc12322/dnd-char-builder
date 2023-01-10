@@ -92,7 +92,7 @@ form {
   transition: 0.2s;
 }
 
-.rand-traits-btn {
+.char-profile-btn {
   width: fit-content;
 }
 
@@ -111,4 +111,14 @@ form {
 .char-portrait {
   max-height: 486px;
   max-width: 250px;
+}
+
+.char-prof-portrait-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.char-prof-portrait-container > * {
+  margin-bottom: 1rem;
 }
